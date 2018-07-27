@@ -1,0 +1,225 @@
+page {
+  overflow: hidden;
+  font-family: "微软雅黑","PingFangSC-Regular";
+}
+.category {
+    height: 1200rpx;
+    background-color:#fff;
+    width:150rpx;
+    position: fixed;
+    top:0rpx;
+    left:0rpx;
+}
+
+.category-item{
+    width: 1.5rem;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 0.28rem;
+    text-align: center;
+    border-bottom: solid 1rpx #eee;
+    color:#333;
+}
+
+.category-true {
+    background-color: #F7F7F7;
+    color: #D20A19;
+}
+
+.goods {
+    height: 1200rpx;
+    width:6rem;
+    position: fixed;
+    top:0rpx;
+    right:0rpx;
+}
+
+.goods-title {
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: left;
+    margin-left:25rpx;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.goods-item {
+    width:560rpx;
+    margin-left: 20rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-bottom: 20rpx;
+}
+
+.good-item {
+    width: 2.8rem;
+}
+
+.good-img {
+    width: 2rem;
+    height: 2.5rem;
+}
+
+.good-name {
+    width:2.6rem;
+    height: 0.35rem;
+    margin-left: 0.1rem;
+    overflow: hidden;
+    font-size: 0.28rem;
+    color: #666666;
+    line-height: 0.35rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    margin-top:0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.good-price {
+    width:2.6rem;
+    margin-left: 0.1rem;
+    overflow: hidden;
+    font-size: 0.28rem;
+    color: #D20A19;
+    line-height: 0.3rem;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.good-img-tag {
+    width:30rpx;
+    height: 80rpx;
+    margin-top: 20rpx;
+    margin-left: -220rpx;
+    position: absolute;
+}
+
+
+.kill-day {
+  height: 100rpx;
+  line-height: 100rpx;
+  width:250rpx;
+  text-align: center;
+  font-size: 35rpx;
+  border-bottom:solid 5rpx #C60014;
+  color:#C60014;
+  z-index: 999;
+}
+
+.kill-desc-time {
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #eee;
+  border-top: solid 1rpx #ddd;
+  margin-top:1rpx;
+  width:100%;
+}
+
+.kill-time {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size:28rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+
+.kill-time-item {
+  background-color:#000;
+  color:#fff;
+  padding:5rpx 10rpx 5rpx 10rpx;
+  border-radius:5rpx;
+}
+
+.kill-good-item {
+  height: 250rpx;
+  border-bottom: solid 1rpx #ccc;
+  text-align: left;
+}
+
+.kill-good-item image {
+  height:200rpx;
+  width:200rpx;
+  margin-left:25rpx;
+  margin-top:25rpx;
+}
+
+.kill-good-name {
+  width: 3.2rem;
+  margin-left: 2.3rem;
+  margin-top: -200rpx;
+  overflow: hidden;
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kill-good-term {
+  width: 3.5rem;
+  margin-left: 2.3rem;
+  margin-top: 0.2rem;
+  color: #888;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kill-good-sk_price {
+  width: 3.5rem;
+  margin-left: 2.3rem;
+  margin-top: 0.2rem;
+  color: #C60014;
+  font-size: 30rpx;
+}
+
+.kill-good-old_price {
+  width: 3.5rem;
+  margin-left: 2.3rem;
+  margin-top: 10rpx;
+  color: #888;
+  font-size: 30rpx;
+}
+
+.kill-good-notify_num {
+  width: 3.5rem;
+  text-align: right;
+  margin-left:2.1rem;
+  margin-top: -30rpx;
+  color: #888;
+  font-size: 30rpx;
+}
+
+.kill-seckill {
+  width: 150rpx;
+  text-align: center;
+  margin-left:4.2rem;
+  margin-top: -120rpx;
+  color: #fff;
+  background: #C60014;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  height: 70rpx;
+  border-radius: 10rpx;
+}
+
+.kill-seckill-true {
+  background-color: #ccc;
+  color:888;
+}
+.kill-false{
+  background-color: #ccc;
+  color:888;
+}
+
+.kill-show{
+  width: 100%;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+}

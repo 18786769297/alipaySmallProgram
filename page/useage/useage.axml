@@ -1,0 +1,13 @@
+<block a:for="{{content}}">
+  <view class="item">
+    <view class="title">
+      <text class="item-title">{{item.title}}</text>
+    </view>
+    <block a:for="{{item.list}}">
+      <view class="i-item">
+        <text class="i-item-title">{{item.title}}</text>
+        <text class="i-item-content">{{item.data}}</text>
+      </view>
+    </block>
+  </view>
+</block>

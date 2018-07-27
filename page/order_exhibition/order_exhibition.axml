@@ -1,0 +1,41 @@
+<view class="herder">
+  <view class="h-top"><image src="/image/xiadanchenggong.png" class="ht-img" mode="aspectFit" /></view>
+  <view class="h-title">恭喜你下单成功</view>
+  <view class="h-content">我们将尽快为你配送</view>
+  <view class="h-img" a:if="{{exempted!=0}}"></view>
+</view>
+
+<view class="rent">
+  <view class="r-top" style="padding-top: 0.2rem;">
+    <text class="r-l">首付租金</text>
+    <text class="r-r">￥{{one_amount}}</text>
+  </view>
+  <view class="r-content">
+    <text class="r-l">租期</text>
+    <text class="r-r">{{leaseTerm}}期</text>
+  </view>
+  <view class="r-bottom" style="margin-bottom: 0.2rem;">月租金将于次月通过支付宝免密支付的方式还款</view>
+</view>
+
+<view class="deposit">
+  <view class="r-content" style="padding-top: 0.2rem;">
+    <text class="r-l">总押金</text>
+    <text class="r-r">￥{{deposit}}</text>
+  </view>
+  <view class="r-top" a:if="{{exempted!=0}}">
+    <text class="r-l">芝麻信用免押金</text>
+    <text class="r-r">-￥{{credit_amount}}</text>
+  </view>
+  <view class="r-top" style="margin-bottom: 0.2rem;">
+    <text class="r-l">已冻结押金</text>
+    <text class="r-r">￥{{exempted_num}}</text>
+  </view>
+</view>
+
+<view class="operation">
+  <view class="o-left" onTap="lookOrder">查看订单</view>
+  <view class="o-right" onTap="backIndex">返回首页</view>
+</view>
+
+<view class="footer"><image src="/image/group3.png" class="f-img" mode="aspectFill" /></view>
+<view class="footer1"><image src="/image/footer.png" class="f1-img" mode="aspectFill" /></view>

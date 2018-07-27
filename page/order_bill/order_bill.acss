@@ -1,0 +1,217 @@
+page {
+  overflow: hidden;
+  font-family: "微软雅黑","PingFangSC-Regular";
+}
+.good{
+    width: 100%;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    overflow: hidden;
+    background: #ffffff
+}
+.good-left{
+    float: left;
+    width: 2rem;
+    height: 2rem;
+    background: aqua;
+    display: inline-block;
+    margin-left: 0.2rem;
+}
+.good-left-img{
+    width: 2rem;
+    height: 2rem;
+}
+.good-right{
+    display: inline-block;
+    height: 2rem;
+    width: 4.5rem;
+    float: left;
+    margin-left: 0.1rem;
+}
+.gr-top{
+    font-size: 0.28rem;
+    color: #333333;
+    line-height: 0.32rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem;
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    display: -webkit-box;  
+    -webkit-line-clamp: 2;  
+    -webkit-box-orient: vertical; 
+}
+.gr-cont{
+    font-size: 0.24rem;
+    color: #999999;
+    line-height: 0.3rem;
+}
+.gr-footer{
+    font-size: 0.28rem;
+    color: #333333;
+    line-height: 0.32rem;
+    margin-top: 0.1rem;
+}
+.gr-img{
+    width: 1.7rem;
+    height: 0.30rem;
+    background-image: url('/image/zmxymyj.png');
+    background-size: 100% 100%;
+    margin-top: 0.1rem;
+}
+.hr{
+    height: 1px;
+    background: #eeeeee;
+}
+.money{
+    width: 100%;
+    background: #ffffff;
+    overflow: hidden;
+}
+.m-main{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 0.2rem;
+
+}
+.mm-content{
+    width: 33%;
+    float: left;
+    text-align: center;
+    line-height: 0.4rem;
+    font-size: 0.32rem;
+}
+.mm-txt{
+    color: #999999;
+    font-size: 0.24rem;
+}
+.m-tag{
+    margin-top: 0.2rem;
+    font-size: 0.24rem;
+    color: #999999;
+    letter-spacing: 0;
+    line-height: 0.3rem;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+.mt-img{
+    width: 0.2rem;
+    height: 0.2rem;  
+    margin-right: 0.03rem;  
+}
+
+.billInfo{
+    width: 100%;
+    background: #ffffff;
+    overflow: hidden;
+    margin-top: 0.2rem;
+
+}
+.bill-row{
+    width: 100%;
+    overflow: hidden;
+}
+.bill-top{
+    overflow: hidden;
+    margin-top: 0.1rem;
+    margin-bottom: 0.2rem;
+}
+.bt-1{
+    width: 2rem;
+    font-size: 0.28rem;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 0.3rem;
+    float: left;
+    margin-left: 0.3rem;
+}
+.bt-2{
+    float: right;
+    margin-right: 0.3rem;
+    font-size: 0.28rem;
+    color: #666666;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 0.3rem;
+}
+.bill-bottom{
+    overflow: hidden;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+.bb-1{
+    font-size: 0.40rem;
+    color: #333333;
+    letter-spacing: 0;
+    float: left;
+    margin-left: 0.3rem;
+}
+.bb-2{
+    float: right;
+    font-size: 0.24rem;
+    color: #999999;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 0.6rem;
+    margin-right: 0.3rem;
+}
+.bb-3{
+    font-size: 0.32rem;
+}
+
+.model{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.model-background{
+    width: 100%;
+    height: 20rem;
+    background: black;
+    opacity: 0.5;
+}
+.model-main{
+    position: absolute;
+    top: 3rem;
+    width: 80%;
+    left: 10%;
+}
+.mm-back{
+    width: 100%;
+    background: #ffffff;
+    border-radius: 0.1rem;
+    overflow: hidden;
+}
+.model-title{
+    font-size: 0.32rem;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.4rem;
+    width: 100%;
+    height: 0.4rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.model-content{
+    display: inline-block;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 0.26rem;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 0.40rem;
+    margin-bottom: 0.3rem;
+}
+.model-close{
+    width: 100%;
+    height: 1rem;
+    padding-top: 0.5rem;
+}
+.model-img{
+    background-image: url(/image/close1.png);
+    background-size: 100% 100%;
+    width: 10%;
+    height: 0.6rem;
+    margin-left: 44%;
+}

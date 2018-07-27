@@ -1,0 +1,11 @@
+<view class="herder">
+  <view class="h-top">
+    <image src="/image/xiadanshibai.png" class="ht-img" mode="aspectFit"/>
+  </view>
+  <view class="h-title">下单失败</view>
+  <view class="h-content">请重试</view>
+</view>
+
+<view class="operation">
+  <view class="o-right" style="width:92%" onTap="submitform">重试</view>
+</view>

@@ -1,0 +1,16 @@
+page {
+  overflow: hidden;
+  font-family: "微软雅黑","PingFangSC-Regular";
+}
+.main{
+    background: #ffffff;
+    width: 100%;
+    padding-top: 0.2rem;
+}
+.content{
+    display: block;
+    width: 94%;
+    margin-left: 3%;
+    font-size: 0.26rem;
+    line-height: 0.4rem;
+}

@@ -1,0 +1,46 @@
+page {
+    overflow: hidden;
+    font-family: "微软雅黑","PingFangSC-Regular";
+    background: #ffffff;
+}
+.item {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #DDDDDD;
+    padding-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+.title{
+    width: 100%;
+    text-align: center;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+.item-title{
+    font-size: 0.36rem;
+    line-height: 0.4rem;
+    margin-left: 0.2rem;
+    font-weight: 600
+}
+.i-item{
+    margin-top: 0.2rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    margin-bottom: 0.4rem
+}
+.i-item-title{
+    display: block;
+    list-style: disc;
+    font-size: 0.32rem;
+    line-height: 0.35rem;
+    margin-left: 0.1rem;
+    margin-bottom: 0.14rem;
+}
+.i-item-content{
+    display: block;
+    padding-left: 0.1rem;
+    font-size: 0.26rem;
+    line-height: 0.42rem;
+    margin-bottom: 0.2rem;
+    color: #999999;
+}

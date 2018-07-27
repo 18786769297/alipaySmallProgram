@@ -1,0 +1,57 @@
+<view>
+  <scroll-view scroll-y="true" class="category"  style="height:{{windowHeight}}px">
+    <block a:for="{{category}}">
+      <view class="category-item category-{{id == item.id}}" data-id="{{item.id}}" onTap="category">{{item.name}}</view>
+    </block>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="good"></scroll-view>
+</view>
+<view>
+  <scroll-view scroll-y="true" class="goods" style="height:{{windowHeight}}px">
+    <block a:for="{{goods}}" a:if="{{id!=10}}">
+      <view class="goods-title">{{item.name}}</view>
+      <view class="goods-item">
+        <block a:for="{{item.goods}}">
+          <view class="good-item" data-id="{{item.goods_item_id}}" data-days="{{item.days}}" onTap="good">
+            <image class="good-img" src="{{item.goods_imgs}}" mode="aspectFit" />
+            <image class="good-img-tag" a:if="{{item.facade == 2}}" src="/image/jiu.png" mode="aspectFit" />
+            <image class="good-img-tag" a:if="{{item.facade == 1}}" src="/image/new.png" mode="aspectFit" />
+            <view class="good-name">{{item.goods_name}}</view>
+            <view class="good-price">{{item.price}}</view>
+          </view>
+        </block>
+      </view>
+    </block>
+     <!-- 秒杀 -->
+    <view a:if="{{id==10}}" style="width: 5.8rem;margin-left: 0.2rem;background-color:#fff;">
+    <view a:if="{{killshow}}">
+      <view class="kill-desc-time">
+        <text style="margin-left:20rpx;" a:if="{{killtype == 1}}">秒杀中，赶快行动</text>
+        <text style="margin-left:20rpx;" a:if="{{killtype == 0}}" >距离秒杀开始,还有：</text>
+        <view class="kill-time"  a:if="{{time[0] != -1}}"  >
+          <text style="margin-right:10rpx;" a:if="{{killtype == 1}}" >距结束</text>
+          <text class="kill-time-item">{{time0}}{{time[0]}}</text> :                     
+          <text class="kill-time-item">{{time1}}{{time[1]}}</text> :                     
+          <text class="kill-time-item">{{time2}}{{time[2]}}</text>
+        </view>
+      </view>
+      <view class="kill-goods">
+        <block a:for="{{seckill.data}}">
+          <view class="kill-good-item" a:if="{{item.days !=1}}">
+            <image src="{{item.pic}}" mode="aspectFit" />
+            <view class="kill-good-name">{{item.name}}</view>
+            <view class="kill-good-term">{{item.term}}</view>
+            <view class="kill-good-sk_price">{{item.sk_price}}</view>
+            <view class="kill-good-old_price">{{item.old_price}}</view>
+            <view class="kill-good-notify_num" a:if="{{killtype == 1}}">已售{{item.killed_rate}}</view>
+            <view class="kill-seckill"  a:if="{{ item.killed_rate != '100%' && killtype == 1 }}"  data-days="{{item.days}}" data-id="{{item.goods_item_id}}" data-type="1" onTap="good" >立即秒杀</view>
+            <view class="kill-seckill kill-false"  a:if="{{ item.killed_rate == '100%' && killtype == 1 }}">立即秒杀</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view a:if="{{!killshow}}" class="kill-show">暂无秒杀活动</view>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="good"></scroll-view>
+</view>

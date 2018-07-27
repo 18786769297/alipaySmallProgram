@@ -1,0 +1,65 @@
+<view class="good">
+  <view class="good-left"><image src="{{orderInfo.imgs_url}}" class="good-left-img"  mode="scaleToFill" /></view>
+  <view class="good-right">
+    <view class="gr-top">{{orderInfo.brand_name}} {{orderInfo.attribute4}}</view>
+    <view class="gr-cont">规格：{{orderInfo.attr}}</view>
+    <view class="gr-footer">总租金：￥{{orderInfo.all_amount}}</view>
+    <view class="gr-img" a:if="{{orderInfo.exempted != 0}}"></view>
+  </view>
+</view>
+<view class="hr"></view>
+<view class="money">
+  <view class="m-main">
+    <view class="mm-content">
+      <view>{{orderInfo.all_amount}}</view>
+      <view class="mm-txt">应还租金(元)</view>
+    </view>
+    <view class="mm-content">
+      <view>{{orderInfo.formerly_amount}}</view>
+      <view class="mm-txt">已还租金(元)</view>
+    </view>
+    <view class="mm-content">
+      <view>{{orderInfo.prepare_amount}}</view>
+      <view class="mm-txt">待还租金(元)</view>
+    </view>
+  </view>
+  <view class="m-tag"><image src="/image/wenhao.png" class="mt-img" mode="scaleToFill" onTap="mmzf" />账单到期将通过支付宝免密支付方式还款，请注意查收信息</view>
+</view>
+
+<view class="model" a:if="{{model}}">
+  <view class="model-background"></view>
+  <view class="model-main">
+    <view class="mm-back">
+      <view class="model-title">{{modelContent.title}}</view>
+      <text class="model-content">{{modelContent.content}}</text>
+    </view>
+    <view class="model-close"><view class="model-img" onTap="modelColse"></view></view>
+  </view>
+</view>
+
+
+<view class="billInfo">
+  <block a:for="{{billInfo}}">
+    <view class="bill-row" a:if="{{item.status == 0}}">
+      <view class="bill-top">
+        <view class="bt-1">{{item.stage}}</view>
+        <view class="bt-2">{{item.text}}</view>
+      </view>
+      <view class="bill-bottom">
+        <view class="bb-1"><text class="bb-3">￥</text>{{item.money}}</view>
+        <view class="bb-2">{{item.time}}通过支付宝免密支付还款</text></view>
+      </view>
+    </view>
+    <view class="bill-row" a:if="{{item.status == 1}}" style="background: #F2F2F2;">
+      <view class="bill-top">
+        <view class="bt-1" style="color: #BBB;">{{item.stage}}</view>
+        <view class="bt-2" style="color: #BBB;">{{item.text}}</view>
+      </view>
+      <view class="bill-bottom">
+        <view class="bb-1" style="color: #BBB;"><text class="bb-3">￥</text>{{item.money}}</view>
+        <view class="bb-2" style="color: #BBB;">{{item.time}}</text></view>
+      </view>
+      <view class="hr"></view>
+    </view>
+  </block>
+</view>

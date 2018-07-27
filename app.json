@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "page/index/index",
+    "page/category/category",
+    "page/proview/proview",
+    "page/order_detail/order_detail",
+    "page/order_bill/order_bill",
+    "page/user/user",
+    "page/lease_agreement/lease_agreement",
+    "page/order_fail/order_fail",
+    "page/order_exhibition/order_exhibition",
+    "page/order_detail/order_detail",
+    "page/good_return/good_return",
+    "page/logistics/logistics",
+    "page/useage/useage",
+    "page/good/good",
+    "page/order/order"
+  ],
+  "window": {
+    "enableWK": "YES",
+    "enableDSL": true,
+    "defaultTitle": "鱿鱼-智能产品信用租赁平台",
+    "backgroundColor": "#F5F5F9",
+    "pullRefresh": false,
+    "allowsBounceVertical": true
+  },
+  "tabBar": {
+    "textColor": "#404040",
+    "selectedColor": "#C60014",
+    "backgroundColor": "#FFFFFF",
+    "items": [
+      {
+        "pagePath": "page/index/index",
+        "icon": "image/index2.png",
+        "activeIcon": "image/index.png",
+        "name": "首页"
+      },
+      {
+        "pagePath": "page/user/user",
+        "icon": "image/user2.png",
+        "activeIcon": "image/user.png",
+        "name": "我的"
+      }
+    ]
+  },
+  "debug": false
+}

@@ -1,0 +1,57 @@
+<view class="herder">
+  <view class="h-l"><image class="hl-img" src="{{orderInfo.imgs_url}}" mode="aspectFit" /></view>
+  <view class="h-r">
+    <view class="hr-top">{{orderInfo.attribute4}}</view>
+    <view class="hr-attr">规格：{{orderInfo.attr}}</view>
+  </view>
+</view>
+
+<view class="type">
+  <text class="t-l">归还方式</text>
+  <text class="t-img"></text>
+  <text class="t-r">快递归还</text>
+</view>
+
+<view class="page-section">
+    <view class="row">
+      <view class="row-left" style="width: auto;">
+        <view class="row-title">归还地址</view>
+        <view class="row-extra">{{orderInfo.company_address}}</view>
+      </view>
+      <view class="row-img" style="margin-top: 0.2rem;"></view>
+    </view>
+
+    <view class="row" style="position: relative;" >
+      <view class="row-left">
+        <view class="row-title" style="line-height: 0.5rem;">物流公司</view>
+      </view>
+      <picker onChange="bindPickerChange"   value="{{index}}" range="{{array}}" range-key="name" >
+        <view class="picker">{{array[index].name}}</view>
+      </picker>
+      <view class="row-img" style="position: absolute;right: 0px;top: 0.3rem;"></view>
+    </view>
+
+    <view class="row">
+      <view class="row-left">
+        <view class="row-title" style="line-height: 0.5rem;" >物流单号</view>
+      </view>
+      <input class="input" onInput="bindKeyInput" placeholder="请输入" />
+      <view class="row-img" style="margin-top: 0.1rem;"></view>
+    </view>
+    <view class="row">
+      <view class="row-left">
+        <view class="row-title" style="line-height: 0.5rem;" >联系人</view>
+      </view>
+      <view style="display: inline-block;padding: 0.1rem;margin-left: 0.8rem;">{{orderInfo.contacts}}</view>
+      <view class="row-img" style="margin-top: 0.1rem;"></view>
+    </view>
+    <view class="row">
+      <view class="row-left">
+        <view class="row-title" style="line-height: 0.5rem;" >联系电话</view>
+      </view>
+      <view  style="display: inline-block;padding: 0.1rem;margin-left: 0.8rem;">{{orderInfo.phone}}</view>
+      <view class="row-img" style="margin-top: 0.1rem;"></view>
+    </view>
+</view>
+  
+<view class="confirm" onTap="confirm">确定</view>

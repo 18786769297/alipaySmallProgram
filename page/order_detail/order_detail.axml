@@ -1,0 +1,115 @@
+<view class="herder">
+  <view class="h-top">
+    <image class="ht-img" src="/image/cancel.png" mode="aspectFill" a:if="{{orderInfo.order_status == -1}}" />
+    <image class="ht-img" src="/image/qb.png" mode="aspectFill" a:if="{{orderInfo.order_status == 1||orderInfo.order_status == 0}}" />
+    <image class="ht-img" src="/image/wl2.png" mode="aspectFill" a:if="{{orderInfo.order_status == 20||orderInfo.order_status == 30}}" />
+    <image class="ht-img" src="/image/success.png" mode="aspectFill" a:if="{{orderInfo.order_status == 40||orderInfo.order_status == 80}}" />
+    <text class="ht-txt">{{order_type.type}}</text>
+  </view>
+  <view class="h-content"  >{{order_type.msg}}</view>
+  <view class="h-bottom">{{orderInfo.update_at}}</view>
+</view>
+
+<view class="address">
+  <view class="add-top"><text>{{orderInfo.realname}}</text><text style="margin-left: 0.3rem;">{{orderInfo.phone}}</text></view>
+  <view class="add-center"><image src="/image/dingwei.png" class="ac-img" mode="aspectFill" />{{orderInfo.address_info.province_name}}{{orderInfo.address_info.city_name}}{{orderInfo.address_info.area_name}}{{orderInfo.address_info.consigneeAddress}}</view>
+  <view class="add-bottom" onTap="qians">签收须知：收货当天你需要1、提供身份证复印件(正反面)…<image class="ab-img" src="/image/Chevron.png" mode="aspectFill" /></view>
+</view>
+
+<view class="good">
+  <view class="order-detail">
+    <image src="{{orderInfo.goods_thumb}}" mode="widthFix" />
+    <view class="order-detail-content">
+      <view style="line-height: 0.4rem;">
+        <text>{{orderInfo.goods_name}}</text>
+        <text class="od-txt">规格:{{orderInfo.attr}}</text>
+        <text>总租金 ￥{{orderInfo.all_amount}}</text>
+        <text class="od-img" a:if="{{orderInfo.credit_amount!=0}}"></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="money">
+  <view class="money-z">
+    <text class="m-l">总租金</text><text class="m-r">￥{{orderInfo.all_amount}}</text>
+  </view>
+  <view class="money-s">
+    <text class="m-l">首付租金</text><text class="m-r">￥{{orderInfo.one_amount}}</text>
+  </view>
+  <view class="money-s">
+    <text class="m-l">服务费<image class="ask" src="/image/ask.png" mode="aspectFill" onTap="fwf" /></text><text class="m-r">￥{{orderInfo.service_fee}}</text>
+  </view>
+  <view class="money-s" a:if="{{orderInfo.accessories != 0}}">
+    <text class="m-l">配件费</text><text class="m-r">￥{{orderInfo.accessories}}</text>
+  </view>
+  <view class="money-s">
+    <text class="m-l">快递费</text><text class="m-r">￥{{orderInfo.postfee_amount}}</text>
+  </view>
+  <view class="money-z">
+    <text class="m-l">租期</text><text class="m-r">{{orderInfo.lease_term}}期</text>
+  </view>
+  <view class="money-z">
+    <text class="m-l">租金付款方式</text><text class="m-r">支付宝免密支付<image class="ask" src="/image/ask.png" mode="aspectFill" onTap="mmzf" /></text>
+  </view>
+  <view class="money-txt">如未完成订单，支付宝免密支付将在30分钟后自动取消</view>
+</view>
+<view class="reduction">
+  <view class="money-z">
+    <text class="m-l">总押金</text><text class="m-r">￥{{orderInfo.deposit_amount}}</text>
+  </view>
+  <view class="reduction-z" a:if="{{orderInfo.credit_amount != 0.00}}">
+    <text class="m-l">芝麻信用免押金</text><text class="m-r">-￥{{orderInfo.credit_amount}}</text>
+  </view>
+  <view class="reduction-z reduction-z-{{orderInfo.credit_amount <= orderInfo.deposit_amount}}">
+    <text class="m-l">已冻结押金</text><text class="m-r">￥{{orderInfo.freeze_amount}}</text>
+  </view>
+  <view class="money-z" a:if="{{orderInfo.credit_amount <= orderInfo.deposit_amount}}" style="margin-bottom: 0.2rem;">
+    <text class="m-l">押金冻结方式</text><text class="m-r">支付宝资金授权<image class="ask" src="/image/ask.png" mode="aspectFill" onTap="zjsq" /></text>
+  </view>
+</view>
+
+<view class="order">
+  <view class="money-z"><text class="m-l">订单编号</text><text class="m-r">{{orderInfo.order_sn}}</text></view>
+  <view class="money-z" style="margin-bottom: 0.2rem;"><text class="m-l">下单时间</text><text class="m-r">{{orderInfo.update_at}}</text></view>
+</view>
+
+<!-- 弹窗 -->
+<view class="alert" a:if="{{is_cancel}}" >
+  <view class="background"></view>
+  <view class="main">
+    <view class="m-title">取消订单</view>
+    <view class="m-tag">取消原因</view>
+    <radio-group class="radio-group" onChange="radioChange">
+      <label class="radio-item" a:for="{{items}}">
+        <radio value="{{item.value}}" style="margin-right: 0.2rem;" checked="{{item.checked}}"/>{{item.name}}
+      </label>
+    </radio-group>
+    <view class="m-footer">
+      <view class="mf-l" onTap="again">再考虑下</view>
+      <view class="mf-r" onTap="cancelOrderC">取消订单</view>
+    </view>
+  </view>
+</view>
+
+<view class="model" a:if="{{model}}">
+  <view class="model-background"></view>
+  <view class="model-main">
+    <view class="mm-back">
+      <view class="model-title">{{modelContent.title}}</view>
+      <text class="model-content">{{modelContent.content}}</text>
+    </view>
+    <view class="model-close"><view class="model-img" onTap="modelColse"></view></view>
+  </view>
+</view>
+
+<view class="footer1"></view>
+<view class="footer">
+  <view class="f-btn" onTap="ghcp" a:if="{{orderInfo.order_status==40 && orderInfo.return_status ==0 && orderInfo.over_status == 1}}">归还产品</view>
+  <!-- <view class="f-btn1" onTap="qrsh"  a:if="{{orderInfo.order_status==20}}">确认收货</view> -->
+  <view class="f-btn" onTap="cancelOrder" a:if="{{orderInfo.order_status==1||orderInfo.order_status==0||orderInfo.order_status==20}}">取消订单</view>
+  <view class="f-btn" onTap="look" a:if="{{orderInfo.order_status==40}}" >查看账单</view>
+  <view class="f-btn" onTap="logistics" a:if="{{orderInfo.order_status!=1||orderInfo.order_status!=-1}}" >查看物流</view>
+  <view class="f-btn" onTap="makePhoneCall">联系客服</view>
+</view>
+

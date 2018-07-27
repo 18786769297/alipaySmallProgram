@@ -1,0 +1,68 @@
+<!-- 幻灯片 -->
+<swiper indicator-dots="false" autoplay="true" interval="5000" class="banner">
+  <block a:for="{{banner}}">
+    <swiper-item>
+      <image data-id="{{item.goods_item_id}}" data-days="{{item.days}}" onTap="redirect" src="{{item.ad_img}}" mode="aspectFill" class="banner-img"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="banner-bomimg"><image src="/image/xiny.png" mode="aspectFit" class="category-img" /></view>
+<!-- 分类 -->
+<view class="category">
+  <block a:for="{{category}}">
+    <view class="category-item" data-id="{{item.id}}" onTap="category">
+      <image src="{{item.url}}" mode="aspectFit" class="category-img"/>
+      <view class="category-name">{{item.name}}</view>
+    </view>
+  </block>
+</view>
+<!-- 秒杀 -->  
+  <view a:if="{{killshow && time[0] != -1}}" class="suggest secendkill" onTap="secondkill">
+  <view>
+    <image src="/image/secendkill.png" mode="aspectFit" class="secendimg" />
+    <view class="time">
+      <text style="margin-right:10rpx;">倒计时</text> 
+      <text class="time-item">{{time0}}{{time[0]}}</text> : <text class="time-item">{{time1}}{{time[1]}}</text> : <text class="time-item">{{time2}}{{time[2]}}</text>
+    </view>
+    <view style="color:#C60014;font-size:25rpx;margin-top:-30rpx;margin-bottom:100rpx;margin-left:600rpx; ">更多秒杀 ···</view>
+  </view>
+  <scroll-view class="secend" scroll-x="true">
+    <block a:for="{{secondkill.data}}">
+      <swiper-item>
+        <view class="secend-item">
+          <image src="{{item.pic}}" mode="aspectFit" style="width:220rpx;height:200rpx;"/>
+          <view style="color:#C60014;font-size:30rpx;width:100%;text-align:center;margin-top:5rpx;">{{item.sk_price}}</view> 
+          <view style="color:#888;font-size:25rpx;width:100%;text-decoration:line-through;text-align:center;">{{item.old_price}}</view>
+        </view>
+        </swiper-item>
+    </block>
+   </scroll-view>
+  </view>
+<!-- 秒杀end -->  
+<block a:for="{{tuijian}}" key="{{dd}}">
+<view class="suggest">
+  <view class="title-name">
+    <view class="title-left"><text>{{item.name}}</text></view>
+    <view class="title-right" data-id="{{item.cid}}" onTap="category"><text class="title-right-txt">更多</text><image src="/image/arrowright.png" mode="aspectFit" /></view>
+  </view>
+  <view style="overflow: hidden;">
+    <view
+    style="width:{{100/(columnNum || 2)}}%;" 
+    class="grid-item" onTap="handleItemTap"
+    data-index={{index}} a:for="{{item.pro}}" >
+        <view class="grid-item-wrapper" data-id="{{item.goods_item_id}}" data-days="{{item.days}}" onTap="redirect">
+          <view class="grid-item-wrapper-img">
+            <image src="{{item.pic}}" class="grid-icon" mode="aspectFit" />
+          </view>
+          <view class="grid-item-wrapper-txt">
+            <text class="grid-text" style="font-weight: 700;color: #333333;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;margin-top: 0.3rem;">{{item.name}}</text>
+            <text class="grid-text" style="color: #999;font-size: 0.24rem;margin-top: 0;">{{item.shen}}</text>
+            <text class="grid-text" style="color: #D20A19;margin-bottom: 0.5rem;">{{item.price_str}}<text style="font-weight: 600;font-size: 0.32rem;line-height: 0.35rem;">{{item.price}}</text></text>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>
+</block>
+<view class="footer-1"></view>
+<view class="footer-2"></view>

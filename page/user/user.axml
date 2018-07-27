@@ -1,0 +1,17 @@
+<view class="clist-item" onTap="onChildItemTap" data-page="/page/order/order">
+  <view class="grid-child-entitle">
+    <text class="c-entitle">我的订单</text>
+  </view>
+  <view class="clist-item-extra">
+      <image aria-hidden="true" class="c-list-item-arrow" src="/image/arrowright.png" />
+  </view>
+</view>
+<view class="clist-item" onTap="onChildItemTap" data-page="/page/useage/useage">
+  <view class="grid-child-entitle">
+    <text class="c-entitle">帮助中心</text>
+  </view>
+  <view class="clist-item-extra">
+      <image aria-hidden="true" class="c-list-item-arrow" src="/image/arrowright.png"/>
+  </view>
+</view>
+<view class="phone" onTap="makePhoneCall"> <text class="p-txt">一</text>客服电话：<text style="color: #108EE9;">{{number}}</text><text class="p-txt" style="margin-left: 0.2rem;">一</text></view>

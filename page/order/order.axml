@@ -1,0 +1,76 @@
+<view a:if="{{status == 0}}">
+  <view class="null-img">
+    <view class="ni-img"></view>
+    <view class="ni-txt">目前暂无订单</view>
+  </view>
+  <view class="null-btn" onTap="gehome">返回首页</view>
+</view>
+<view class="container" a:if="{{status != 0}}" >
+  <view class="header">
+    <view data-type="all" onTap="onSkip">
+      <text class="selected-{{type == 'all'}}">全部订单</text>
+    </view>
+    <view data-type="unpay" onTap="onSkip">
+      <text class="selected-{{type == 'unpay'}}">待发货</text>
+    </view>
+    <view data-type="unreceive" onTap="onSkip">
+      <text class="selected-{{type == 'unreceive'}}">待收货</text>
+    </view>
+    <view data-type="using" onTap="onSkip">
+      <text class="selected-{{type == 'using'}}">租赁中</text>
+    </view>
+  </view>
+  <view class="orders">
+    <block a:for="{{orderArr}}">
+      <view class="order">
+        <view class="order-header">
+          <view class="order-header-logo">
+            <text style="margin-left: 0.2rem;">{{item.created_at_s}}</text>
+          </view>
+          <text>{{item.show.status}}</text>
+        </view>
+        <view class="order-detail" onTap="detail" data-orderSn="{{item.order_sn}}" data-status="{{item.order_status}}">
+          <image src="{{item.img}}" mode="widthFix" />
+          <view class="order-detail-content">
+            <view style="line-height: 0.4rem;">
+              <text>{{item.goods_name}}</text>
+              <text class="od-txt">规格:{{item.attribute}}</text>
+              <text>总租金 ￥{{item.pay_amount}}</text>
+              <text class="od-img" a:if="{{item.credit_amount!=0}}"></text>
+            </view>
+          </view>
+        </view>
+        <view class="order-operation">
+          <block a:for="{{item.show.btn}}" a:for-item="button" a:for-index="index">
+            <text  data-index="{{button.index}}" data-orderSn="{{item.order_sn}}" onTap="changeStatus" class="bnormal-{{index==0}}">{{button.txt}}</text>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 弹窗 -->
+<view class="alert" a:if="{{is_cancel}}" >
+  <view class="background"></view>
+  <view class="main">
+    <view class="m-title">取消订单</view>
+    <view class="m-tag">取消原因</view>
+    <radio-group class="radio-group" onChange="radioChange">
+      <label class="radio-item" a:for="{{items}}">
+        <radio value="{{item.value}}" style="margin-right: 0.2rem;" checked="{{item.checked}}"/>{{item.name}}
+      </label>
+    </radio-group>
+    <view class="m-footer">
+      <view class="mf-l" onTap="again">再考虑下</view>
+      <view class="mf-r" onTap="cancelOrder">取消订单</view>
+    </view>
+  </view>
+</view>
+
+  <view class="tail">
+    <view hidden="{{moreHid}}">
+      <text class="tail-more" data-page="{{page}}" data-type="{{type}}" onTap="loadMore">点击加载更多</text>
+    </view>
+    <view hidden="{{noneHid}}" class="tail-none">没有更多了</view>
+  </view>
+</view>

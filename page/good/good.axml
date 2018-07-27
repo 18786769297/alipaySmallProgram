@@ -1,0 +1,143 @@
+<!-- 幻灯片 -->
+<swiper indicator-dots="true" autoplay="true" interval="5000" class="banner">
+  <block a:for="{{goods_info.goods_imgs}}">
+    <swiper-item>
+      <image src="{{item}}" mode="aspectFit" class="banner-img"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="xqmy"></view>
+<!-- 商品名称售价 -->
+<view class="good-info" a:if="{{!secend_flag}}">
+  <view class="good-name">{{goods_info.goods_name}}</view>
+  <view class="good-price">
+    {{goods_info.price_str}} ￥<text style="font-size: 0.48rem;" a:if="{{type!=1}}">{{goods_info.price}}</text><text style="font-size: 0.48rem;" a:if="{{type==1}}">{{goods_info.kill_price}}</text>
+    <view class="kill-time" a:if="{{type==1&&kill_timer[0]!=-1}}" >
+      <text style="margin-right:10rpx;">距结束</text>
+      <text class="kill-time-item">{{time0}}{{kill_timer[0]}}</text> :                     
+      <text class="kill-time-item">{{time1}}{{kill_timer[1]}}</text> :                     
+      <text class="kill-time-item">{{time2}}{{kill_timer[2]}}</text>
+    </view>
+  </view>
+  <view class="good-rent" style="padding-bottom: 0;" a:if="{{type==1}}">原价格 :<text style="font-size: 0.28rem;color: #151515;text-decoration:line-through ">{{goods_info.price_str}}￥{{goods_info.price}}</text></view>
+  <view class="good-rent good-rent-{{type}}">商品价值 ￥<text style="font-size: 0.28rem;color: #151515;">{{goods_info.official_price}}</text></view>
+</view>
+<view class="quality" onTap="mysm">
+  <view class="quality-zm" style="margin-left: 0.2rem;" ><view class="zm-img"></view><text class="zm-txt">芝麻信用免押</text></view>
+  <view class="quality-zm"><view class="zm-img"></view><text class="zm-txt">正品保证</text></view>
+  <view class="quality-icon"></view>
+</view>
+<!-- 弹窗 -->
+<view a:if="{{qclose}}">
+  <view class="quality-hide"></view>
+  <view class="quality-main">
+    <view class="q-header">服务说明</view>
+    <view class="q-content">
+      <view class="qc-top"><view class="qc-img"></view><text>芝麻信用免押金</text></view>
+      <view class="qc-bottom">信用好，有机会享受押金全面优惠</view>
+    </view>
+    <view class="q-content">
+      <view class="qc-top"><view class="qc-img"></view><text>正品保障</text></view>
+      <view class="qc-bottom">100%正品保障，杜绝一切假货，让你购物无忧</view>
+    </view>
+    <view class="q-br"></view>
+    <view class="q-close" onTap="qclose">关闭</view>
+  </view>
+</view>
+<!-- 商品规格 -->
+<view a:if="{{attr_show}}">
+  <view class="attr-hide"></view>
+  <view class="attrcontent">
+    <view style="width:100%;position: relative;">
+      <image src="{{goods_info.share_pic}}" mode="aspectFit" class="attr-avatar"/>
+      <view class="attr-price" a:if="{{type !=1}}">￥{{goods_info.price}}</view>
+      <view class="attr-price" a:if="{{type ==1}}">￥{{goods_info.kill_price}}</view>
+      <view class="attr-price" style="color:#000">库存:{{goods_info.inventory}}</view>
+      <view class="attr-price" style="color:#000">已选:{{goods_info.attr}}</view>
+      <view class="attr-img"></view>
+    </view>
+    <scroll-view scroll-y="true" class="attrs">
+      <block a:for="{{attr}}" a:for-index="i">
+        <view class="attr-title">{{item.title}}</view>
+        <view class="attrs-content">
+          <block a:for="{{item.items}}" a:for-index="j">
+            <text class="attr-item attr-item-{{item.display == 0}} attr-select-{{item.select == 1}}" data-i="{{i}}" data-j="{{j}}" data-id="{{item.goods_item_id}}" data-days="{{item.days}}" a:if="{{item.display == 1}}" onTap="selectattr">{{item.name}}</text>
+            <text class="attr-item attr-item-{{item.display == 0}}" data-i="{{i}}" data-j="{{j}}" data-id="{{item.goods_item_id}}" data-days="{{item.days}}" a:if="{{item.display == 0}}" >{{item.name}}</text>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <image onTap="attr_close" src="/image/cancel1.png" mode="aspectFit" style="position:fixed;bottom: 7.8rem;right: 0.3rem;z-index:999;height:0.34rem;width:0.34rem; " />
+  <view class="confirm" onTap="submitform" a:if="{{goods_info.inventory !=0}}" >立即租赁</view>
+  <view class="confirm" style="background-color: #999;" a:if="{{goods_info.inventory ==0}}" >立即租赁</view>
+</view>
+<!-- 商品详情 -->
+<view class="detail">
+  <view class="detail-header">
+    <view class="detail-item" data-hidden="1" onTap="onhidden">商品介绍 <view class="detail-item-{{hidden == 1}}"></view></view>
+    <view class="detail-item" data-hidden="3" onTap="onhidden">租赁说明 <view class="detail-item-{{hidden == 3}}"></view></view>
+  </view>
+  <!-- 商品介绍 -->
+  <view style="width:100%;margin-bottom: 1.5rem;" a:if="{{hidden == 1}}">
+    <block a:for="{{introductimg}}">
+      <image src="{{item}}" mode="widthFix" style="width:100%;"/>
+    </block>
+  </view>
+</view>
+<!-- 租赁说明 -->
+<view style="width:100%;" a:if="{{hidden == 3}}">
+  <view class="zj" style="margin-bottom: 0;">
+    <view class="z-title">租机流程</view>
+    <view class="z-main">
+      <view class="zm-title">挑选商品</view>
+      <text class="zm-content">选择商品规格、型号、颜色、租赁期数。在合约期间，一个用户只允许租赁一个商品。</text>
+    </view>
+    <view class="z-main">
+      <view class="zm-title">评估信用</view>
+      <text class="zm-content">通过芝麻信用进行免押额度评估，信用越好，免押金额越多。</text>
+    </view>
+    <view class="z-main">
+      <view class="zm-title">月付租金</view>
+      <text class="zm-content">租金通过用户支付宝的免密支付直接扣款，无须用户主动还款。</text>
+    </view>
+    <view class="z-main">
+      <view class="zm-title">到期买断或归还</view>
+      <text class="zm-content">租赁合约到期，可选择还机或买断。买断金额以买断入口页面显示为主。</text>
+    </view>
+  </view>
+  <view class="zj">
+    <view class="z-title">关于订单</view>
+    <view class="z-main">
+      <view class="zm-title">可以下几个订单?</view>
+      <text class="zm-content">一个实名认证支付宝账户限一个租赁订单。</text>
+    </view>
+    <view class="z-main">
+      <view class="zm-title">租期内可以更换机型吗?</view>
+      <text class="zm-content">租期内无法更换机型。</text>
+    </view>
+    <view class="z-main">
+      <view class="zm-title">订单可以更改租赁时间吗?</view>
+      <text class="zm-content">租赁期间内，用户不可更改租赁时间，租期结束时，可选择买断或归还商品。</text>
+    </view>
+    <view class="z-main">
+      <view class="zm-title">如何取消订单?</view>
+      <text class="zm-content">支付完成但还未发货时，用户可拨打客服电话进行取消。货品一旦发货，订单则无法取消，且不接受非质保原因的退货。</text>
+    </view>
+    <view class="z-main">
+      <view class="zm-title">合约期间， 如何更换联系方式或其他信息?</view>
+      <text class="zm-content">如您需要更换联系方式或其他相关信息，应通过客服电话及时通知我们。如因您更换联系方式或其他相关信息未及时通知我们，造成未按时付款而产生滞纳金的，需要您自行承担。</text>
+    </view>
+  </view>
+</view>
+<!-- 底部 -->
+<view class="footer">
+  <view class="footer-item" onTap="gohome">
+    <view style="position: relative;overflow: hidden;padding-left: 0.8rem;"><view class="f-i-img" onTap="backIndex"></view>
+    租金 <text style="color:#333;font-size: 35rpx;" a:if="{{type ==0 }}">￥{{goods_info.price_num}}</text>
+        <text style="color:#333;font-size: 35rpx;" a:if="{{type ==1 }}">￥{{goods_info.kill_price}}</text>
+  </view>
+  </view>
+  <view class="footer-item2" a:if="{{type!=1}}" onTap="attr">立即租赁</view>
+  <view class="footer-item2" a:if="{{type==1}}" onTap="submitform">立即租赁</view>
+</view>

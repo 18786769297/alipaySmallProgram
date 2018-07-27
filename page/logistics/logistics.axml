@@ -1,0 +1,27 @@
+<view class="herder">
+  <view class="h-l"></view>
+  <view class="h-main">
+    <view class="hm-title"><text style="color: #666666;">物流公司：</text>{{data_order_info.express_name}}</view>
+    <view class="hm-conter"><text style="color: #666666;">物流单号：</text>{{data_order_info.express_no}}</view>
+  </view>
+  <view class="h-bottom">复制</view>
+</view>
+
+<view class="main">
+  <block a:for="{{logisticsInfo}}">
+    <view class="logistics">
+      <view class="log-left" a:if="{{item.is_logistics}}">
+        <view style="font-size: 0.32rem;line-height: 0.32rem;">{{item.shi}}</view>
+        <view>{{item.nian}}</view>
+      </view>
+      <view class="log-left1" a:if="{{!item.is_logistics}}">
+        <view style="font-size: 0.32rem;line-height: 0.32rem;">{{item.shi}}</view>
+        <view>{{item.nian}}</view>
+      </view>
+      <view class="log-right" a:if="{{item.is_logistics}}" >{{item.remark}}</view>
+      <view class="log-right1" a:if="{{!item.is_logistics}}" >{{item.remark}}</view>
+      <view class="log-spot" a:if="{{item.is_logistics}}" ></view>
+      <view class="log-spot1" a:if="{{!item.is_logistics}}"></view>
+    </view>
+  </block>
+</view>

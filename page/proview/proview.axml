@@ -1,0 +1,76 @@
+<view class="header">
+  <view class="h-top"><text class="ht-left">{{lists.name}}</text><text class="ht-right">{{lists.phone}}</text></view>
+  <view class="h-main"><view class="hm-img"></view>{{lists.house}}</view>
+  <view class="h-footer">如需修改地址，请取消订单，重新下单并在信用套餐页面进行修改</view>
+</view>
+<view class="x-hr"></view>
+<view class="good">
+  <view class="good-left"><image src="{{lists.good_img}}" class="good-left-img"  mode="scaleToFill" /></view>
+  <view class="good-right">
+    <view class="gr-top">{{lists.good_name}}</view>
+    <view class="gr-cont">规格：{{lists.good_attribute1}}/{{lists.good_attribute2}}</view>
+    <view class="gr-footer">总租金：￥{{lists.all_amount}}</view>
+    <view class="gr-img" a:if="{{lists.exempted != 0}}"></view>
+  </view>
+</view>
+<view class="money">
+  <view class="money-z">
+    <text class="m-l">总租金</text><text class="m-r">￥{{lists.all_amount}}</text>
+  </view>
+  <view class="money-s">
+    <text class="m-l">首付租金</text><text class="m-r">￥{{lists.one_amount}}</text>
+  </view>
+  <view class="money-s">
+    <text class="m-l">服务费<image class="ask" src="/image/ask.png" mode="aspectFill" onTap="fwf" /></text><text class="m-r">￥{{lists.service_fee}}</text>
+  </view>
+  <view class="money-s" a:if="{{lists.accessories != 0}}">
+    <text class="m-l">配件费</text><text class="m-r">￥{{lists.accessories}}</text>
+  </view>
+  <view class="money-s">
+    <text class="m-l">快递费</text><text class="m-r">￥{{lists.express_amount}}</text>
+  </view>
+  <view class="money-z">
+    <text class="m-l">租期</text><text class="m-r">{{lists.leaseTerm}}期</text>
+  </view>
+  <view class="money-z">
+    <text class="m-l">租金付款方式</text><text class="m-r">支付宝免密支付<image class="ask" src="/image/ask.png" mode="aspectFill" onTap="mmzf" /></text>
+  </view>
+  <view class="money-txt">如未完成订单，支付宝免密支付将在30分钟后自动取消</view>
+</view>
+<view class="reduction">
+  <view class="money-z">
+    <text class="m-l">总押金</text><text class="m-r">￥{{lists.deposit}}</text>
+  </view>
+  <view class="reduction-z" a:if="{{lists.exempted != 0}}">
+    <text class="m-l">芝麻信用免押金</text><text class="m-r">-￥{{lists.credit_amount}}</text>
+  </view>
+  <view class="reduction-z">
+    <text class="m-l">需冻结押金</text><text class="m-r">￥{{lists.exempted_num}}</text>
+  </view>
+  <view class="money-z" a:if="{{lists.exempted != 2}}" style="margin-bottom: 0.2rem;" >
+    <text class="m-l">押金冻结方式</text><text class="m-r">支付宝资金授权<image class="ask" src="/image/ask.png" mode="aspectFill" onTap="zjsq" /></text>
+  </view>
+</view>
+
+<view class="model" a:if="{{model}}">
+  <view class="model-background"></view>
+  <view class="model-main">
+    <view class="mm-back">
+      <view class="model-title">{{modelContent.title}}</view>
+      <view class="model-content">{{modelContent.content}}</view>
+    </view>
+    <view class="model-close"><view class="model-img" onTap="modelColse"></view></view>
+  </view>
+</view>
+
+<view class="footer-f"></view>
+<view class="footer">
+  <view class="f-top">
+    <view class="ft-radio" onTap="radio">
+      <view class="ft-radio-1" a:if="{{radio}}"></view>
+      <view class="ft-radio-2" a:if="{{radio1}}"></view>
+    </view>
+    我已阅读并同意<text class="f-color" onTap="showdesc">下单协议待定，回收买断协议待定</text>
+  </view>
+  <view class="f-bottom f-bottom-{{radio}}" onTap="submitform">提交订单</view>
+</view>
